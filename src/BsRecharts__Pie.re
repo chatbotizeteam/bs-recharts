@@ -4,7 +4,7 @@ open BsRecharts__Utils;
 [@bs.module "recharts"] [@react.component]
 external make:
   (
-    ~activeIndex: array(Js.t({..}))=?,
+    ~activeIndex: int=?,
     ~activeShape: 'activeShape=?,
     ~animationBegin: int=?,
     ~animationDuration: int=?,
@@ -45,7 +45,7 @@ external make:
     ~nameKey: string=?,
     ~onClick: (Js.Nullable.t(Js.t({..})), ReactEvent.Mouse.t) => unit=?,
     ~onMouseDown: (Js.Nullable.t(Js.t({..})), ReactEvent.Mouse.t) => unit=?,
-    ~onMouseEnter: (Js.Nullable.t(Js.t({..})), ReactEvent.Mouse.t) => unit=?,
+    ~onMouseEnter: (Js.Nullable.t(Js.t({..})), int) => unit=?,
     ~onMouseLeave: (Js.t({..}), ReactEvent.Mouse.t) => unit=?,
     ~onMouseMove: (Js.Nullable.t(Js.t({..})), ReactEvent.Mouse.t) => unit=?,
     ~onMouseOut: (Js.Nullable.t(Js.t({..})), ReactEvent.Mouse.t) => unit=?,
@@ -104,20 +104,14 @@ let makeProps =
     ~animationDuration?,
     ~animationEasing?,
     ~className?,
-    ~cx=?{
-      cx->PxOrPrc.encodeOpt;
-    },
-    ~cy=?{
-      cy->PxOrPrc.encodeOpt;
-    },
+    ~cx=?cx->PxOrPrc.encodeOpt,
+    ~cy=?cy->PxOrPrc.encodeOpt,
     ~data,
     ~dataKey,
     ~endAngle?,
     ~fill?,
     ~id?,
-    ~innerRadius=?{
-      innerRadius->PxOrPrc.encodeOpt;
-    },
+    ~innerRadius=?innerRadius->PxOrPrc.encodeOpt,
     ~isAnimationActive?,
     ~label?,
     ~labelLine?,
@@ -132,9 +126,7 @@ let makeProps =
     ~onMouseOut?,
     ~onMouseOver?,
     ~onMouseUp?,
-    ~outerRadius=?{
-      outerRadius->PxOrPrc.encodeOpt;
-    },
+    ~outerRadius=?outerRadius->PxOrPrc.encodeOpt,
     ~paddingAngle?,
     ~startAngle?,
     ~stroke?,
@@ -216,7 +208,7 @@ module Jsx2 = {
         ~paddingAngle?,
         ~startAngle?,
         ~stroke?,
-        ~children={React.array(children)},
+        ~children=React.array(children),
         (),
       ),
       children,
