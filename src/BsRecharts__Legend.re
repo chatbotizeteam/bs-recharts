@@ -11,6 +11,8 @@ external make:
     ~className: string=?,
     ~height: int=?,
     ~iconSize: int=?,
+    ~paylodUniqBy: 'item => bool=?,
+    ~formatter: 'value => string=?,
     ~iconType: [@bs.string] [
                  | `line
                  | `square
@@ -65,6 +67,8 @@ module Jsx2 = {
         ~onMouseOver=?,
         ~onMouseUp=?,
         ~payload=?,
+        ~paylodUniqBy=?,
+        ~formatter=?,
         ~verticalAlign=?,
         ~width=?,
         ~wrapperStyle=?,
@@ -81,6 +85,8 @@ module Jsx2 = {
         ~height?,
         ~iconSize?,
         ~iconType?,
+        ~paylodUniqBy?,
+        ~formatter?,
         ~layout?,
         ~margin?,
         ~onClick?,
