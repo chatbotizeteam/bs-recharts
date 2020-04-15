@@ -11,7 +11,7 @@ external make:
     ~className: string=?,
     ~height: int=?,
     ~iconSize: int=?,
-    ~paylodUniqBy: 'item => bool=?,
+    ~paylodUniqBy: 'item => 'uniqBy=?,
     ~formatter: 'value => string=?,
     ~iconType: [@bs.string] [
                  | `line
