@@ -25,6 +25,7 @@ external make:
     ~label: string=?,
     ~labelFormatter: 'labelFormatter=?,
     ~labelStyle: Js.t({..})=?,
+    ~contentStyle: Js.t({..})=?,
     ~offset: int=?,
     ~payload: array(Js.t({..}))=?,
     ~separator: string=?,
@@ -59,6 +60,7 @@ module Jsx2 = {
         ~separator=?,
         ~viewBox=?,
         ~wrapperStyle=?,
+        ~contentStyle=?,
         children,
       ) =>
     ReasonReactCompat.wrapReactForReasonReact(
@@ -75,6 +77,7 @@ module Jsx2 = {
         ~formatter?,
         ~isAnimationActive?,
         ~itemSorter?,
+        ~contentStyle?,
         ~itemStyle?,
         ~label?,
         ~labelFormatter?,
